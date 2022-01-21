@@ -15,7 +15,7 @@ router.get('/', (req,res,next)=>{
 router.post('/', (req,res,next)=>{
     task.createTask(req.body)
     .then(newT =>{
-        res.status(201).json(newT)
+        res.status(201).json(newT[0])
     })
     .catch(next)
 })

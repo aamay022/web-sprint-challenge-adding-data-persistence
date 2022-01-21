@@ -22,7 +22,7 @@ async function createProjects(project){
 return db('projects')
     .insert(project)
     .then(([project_id]) => { 
-      return db('projects').where('project_id',project_id)
+      return db('projects').where('project_id',project_id).select('project_completed', 'project_description', 'project_name')
     })
 }
   

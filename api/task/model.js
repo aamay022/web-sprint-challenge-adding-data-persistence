@@ -21,7 +21,7 @@ async function getTask(){
   async function createTask(newTask){
     return db('tasks').insert(newTask)
     .then(([task_id])=>{
-      return db('tasks').where('task_id', task_id)
+      return db('tasks').where('task_id', task_id).select('task_completed', 'task_description', 'task_notes')
     })
   }
   
